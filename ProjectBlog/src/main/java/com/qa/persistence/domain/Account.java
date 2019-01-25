@@ -1,6 +1,7 @@
 package com.qa.persistence.domain;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -33,7 +34,7 @@ public class Account {
 	            fetch = FetchType.EAGER
 	    )
 	    @JoinColumn(name = "id")
-	 private ArrayList<Blog> blog = new ArrayList<>();
+	 private Collection<Blog> blog = new ArrayList<>();
 	
 	public Account() {
 	
