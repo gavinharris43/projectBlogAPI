@@ -32,7 +32,7 @@ public class Account {
 	            cascade = CascadeType.ALL,
 	            fetch = FetchType.EAGER
 	    )
-	    @JoinColumn(name="username", referencedColumnName="author")
+	    @JoinColumn(name="author", referencedColumnName="username")
 	 private Collection<Blog> blog = new ArrayList<>();
 	
 	public Account() {
