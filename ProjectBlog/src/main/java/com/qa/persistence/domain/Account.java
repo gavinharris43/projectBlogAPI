@@ -23,7 +23,6 @@ public class Account {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	private Long id;
-	@Column(unique=true)
 	private String username;
 	private String firstName;
 	private String lastName;
