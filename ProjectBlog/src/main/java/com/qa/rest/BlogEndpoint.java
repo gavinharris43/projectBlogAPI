@@ -18,6 +18,34 @@ public class BlogEndpoint {
 	@Inject
 	private BlogService service;
 	
+	@Path("/getAccounts")
+	@GET
+	@Produces({ "application/json" })
+	public String getAllAccounts() {
+		return service.getAllAccounts();
+	}
+
+	@Path("/addAccount")
+	@POST
+	@Produces({ "application/json" })
+	public String addAccount(String account) {
+		return service.addAccount(account);
+	}
+
+	@Path("/updateAccount/{id}")
+	@PUT
+	@Produces({ "application/json" })
+	public String updateAccount(@PathParam("id") Long accountID, String account) {
+		return service.updateAccount(accountID, account);
+	}
+
+	@Path("/deleteAccount/{id}")
+	@DELETE
+	@Produces({ "application/json" })
+	public String deleteAccount(@PathParam("id") Long accountID) {
+		return service.deleteAccount(accountID);
+	}
+	
 	@Path("/getAllBlogs")
 	@GET
 	@Produces({ "application/json" })

@@ -1,21 +1,39 @@
 package com.qa.persistence.domain;
 
+import java.util.ArrayList;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import antlr.collections.List;
 
 @Entity 
+@Table(name = "ACCOUNT")
 public class Account {
 	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	private Long id;
+	@Column(unique=true)
 	private String username;
 	private String firstName;
 	private String lastName;
 	private String password;
 	private String userLevel;
+	 @OneToMany(
+	            cascade = CascadeType.ALL,
+	            fetch = FetchType.EAGER
+	    )
+	    @JoinColumn(name = "id")
+	 private ArrayList<Blog> blog = new ArrayList<>();
 	
 	public Account() {
 	

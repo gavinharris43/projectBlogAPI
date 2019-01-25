@@ -1,3 +1,4 @@
-INSERT INTO MOVIE (id, name, length, releaseDate) VALUES (1, Matrix', 2.5, 2006)
-INSERT INTO MOVIE (id, name, length, releaseDate) VALUES (2, 'Harry Potter & Chaimber of Secrets', 1.7, 2004)
-INSERT INTO MOVIE (id, name, length, releaseDate) VALUES (3, 'Titanic', 2.1, 1996)
+INSERT INTO ACCOUNT (id, username, firstName, lastName, password, userLevel) VALUES (1, 'gavinharris43', 'Gavin','Harris', 'password',0)
+INSERT INTO BLOG (id, name, length, releaseDate) VALUES (1, 'TSL Shutdown!', 'gavinharris43','To accompany her sixth album, Reputation, Taylor Swift launched her The Swift Life app, which allowed Swifties to gather together within their own social network.
+However, the app's lifetime is coming to an end. According to an announcement made on Twitter Wednesday (Jan. 2), The Swift Life will shut down on Feb. 1, 2019, and new downloads are already unavailable. "Current fans have until this date to utilize the virtual currency they've accumulated," the release reads. "Effective immediately, no new in-app purchases will be permitted."', '2019/01/01','TS')
+INSERT INTO BLOG (id, name, length, releaseDate) VALUES (2, 'New Guitar', 'gavinharris43','New Guitar, new content coming soon', '2019/01/01','Guitar'))
