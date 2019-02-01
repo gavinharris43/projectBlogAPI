@@ -14,6 +14,7 @@ import org.apache.log4j.Logger;
 import com.qa.business.service.BlogService;
 @Path("/blog")
 public class BlogEndpoint {
+	public BlogEndpoint(){}
 
 	@Inject
 	private BlogService service;
@@ -31,12 +32,19 @@ public class BlogEndpoint {
 	public String addAccount(String account) {
 		return service.addAccount(account);
 	}
+	
+	@Path("/login")
+	@POST
+	@Produces({ "application/json" })
+	public String login(String account) {
+		return service.login(account);
+	}
 
-	@Path("/updateAccount/{id}")
+	@Path("/updateAccount/{usernem}")
 	@PUT
 	@Produces({ "application/json" })
-	public String updateAccount(@PathParam("id") Long accountID, String account) {
-		return service.updateAccount(accountID, account);
+	public String updateAccount(@PathParam("id") Long username, String account) {
+		return service.updateAccount(username, account);
 	}
 
 	@Path("/deleteAccount/{id}")
@@ -73,7 +81,7 @@ public class BlogEndpoint {
 	}
 
 	@Path("/deleteBlog/{id}")
-	@DELETE
+	@PUT
 	@Produces({ "application/json" })
 	public String deleteBlog(@PathParam("id") int id, String account) {
 		return service.deleteBlog(id,account);

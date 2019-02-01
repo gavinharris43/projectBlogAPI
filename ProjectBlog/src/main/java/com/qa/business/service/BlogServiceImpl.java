@@ -56,6 +56,10 @@ public class BlogServiceImpl implements BlogService {
 	public String editBlog(int blogId, String Blog) {
 		return repo.editBlog(blogId,Blog);
 	}
+	@Override
+	public String login(String account) {
+		return repo.login(account);
+	}
 	
 
 

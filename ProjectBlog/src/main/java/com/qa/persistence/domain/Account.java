@@ -2,6 +2,7 @@ package com.qa.persistence.domain;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -23,17 +24,28 @@ public class Account {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	private Long id;
+	@Column(unique=true)
 	private String username;
 	private String firstName;
 	private String lastName;
 	private String password;
 	private String userLevel;
-	 @OneToMany(
-	            cascade = CascadeType.ALL,
-	            fetch = FetchType.EAGER
-	    )
-	    @JoinColumn(name="author", referencedColumnName="username")
-	 private Collection<Blog> blog = new ArrayList<>();
+//	 @OneToMany(
+//	            cascade = CascadeType.ALL,
+//	            fetch = FetchType.EAGER
+//	    )
+//	    @JoinColumn(name="username")
+////	 , referencedColumnName="username"
+//	 private Collection<Blog> blog = new ArrayList<>();
+	 
+	 
+//	 @OneToMany(fetch=FetchType.EAGER)
+//		@JoinColumn(name="username")
+//		private Set<Blog> blogs;
+//		
+//		public Set<Blog> getBlogs() {
+//			return blogs;
+//		}
 	
 	public Account() {
 	

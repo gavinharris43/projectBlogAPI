@@ -12,5 +12,6 @@ public interface BlogService {
 	String addAccount(String account);
 	String updateAccount(Long accountID, String account);
 	String deleteAccount(Long accountID);
+	String login(String account);
 
 }

@@ -59,15 +59,18 @@ public class BlogDBRepository implements BlogRepository {
 	@Override
 	@Transactional(REQUIRED)
 	public String deleteBlog(int blogId, String username) {
-		Blog blogInDB = findBlog(blogId);
-		if (blogInDB != null && blogInDB.getAuthor()==username) {
+		Long blogID = (long) blogId;
+		Blog blogInDB = findBlog(blogID);
+		Account account = util.getObjectForJSON(username, Account.class);
+		if (blogInDB != null) {
 			manager.remove(blogInDB);
+			return "{\"message\": \"blog sucessfully deleted\"}";
 		}
-		return "{\"message\": \"blog sucessfully deleted\"}";
+		return "{\"message\": \"blog not sucessfully deleted\"}" +account.getUsername()+blogInDB.getAuthor();
 	}
 
-	private Blog findBlog(int blogId) {
-		return manager.find(Blog.class, blogId);
+	private Blog findBlog(Long blogID) {
+		return manager.find(Blog.class, blogID);
 	}
 
 	public void setManager(EntityManager manager) {
@@ -80,7 +83,8 @@ public class BlogDBRepository implements BlogRepository {
 	@Override
 	@Transactional(REQUIRED)
 	public String editBlog(int blogId, String blog) {
-		Blog blogInDB = findBlog(blogId);
+		Long blogID = (long) blogId;
+		Blog blogInDB = findBlog(blogID);
 		if (blogInDB != null && blogInDB.getId()==blogId) {
 			manager.remove(blogInDB);
 	Blog anBlog = util.getObjectForJSON(blog, Blog.class);
@@ -90,8 +94,19 @@ public class BlogDBRepository implements BlogRepository {
 		return null;
 	}
 	
+	@Override
 	public String getAllAccounts() {
 		Query query = manager.createQuery("Select a From Account a");
+		Collection<Account> result = (Collection<Account>)query.getResultList();
+		return util.getJSONForObject(result);
+	}
+	
+	@Override
+	public String login(String account) {
+		Account anAccount = util.getObjectForJSON(account, Account.class);
+		String username = anAccount.getUsername();
+		String password = anAccount.getPassword();
+		Query query = manager.createQuery("Select username From Account a WHERE username='"+username+"' AND password ='"+password+"'");
 		Collection<Account> result = (Collection<Account>)query.getResultList();
 		return util.getJSONForObject(result);
 	}
@@ -123,9 +138,7 @@ public class BlogDBRepository implements BlogRepository {
 	}
 	public Account findAccount(Long id) {
 		return manager.find(Account.class, id);
-		}
-
-
+	}
 
 
 
