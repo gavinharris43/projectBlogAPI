@@ -62,7 +62,7 @@ public class BlogDBRepository implements BlogRepository {
 		Long blogID = (long) blogId;
 		Blog blogInDB = findBlog(blogID);
 		Account account = util.getObjectForJSON(username, Account.class);
-		if (blogInDB != null) {
+		if (blogInDB != null && account.getUsername().equals(blogInDB.getAuthor())) {
 			manager.remove(blogInDB);
 			return "{\"message\": \"blog sucessfully deleted\"}";
 		}

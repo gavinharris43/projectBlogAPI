@@ -81,7 +81,7 @@ public class BlogEndpoint {
 	}
 
 	@Path("/deleteBlog/{id}")
-	@PUT
+	@DELETE
 	@Produces({ "application/json" })
 	public String deleteBlog(@PathParam("id") int id, String account) {
 		return service.deleteBlog(id,account);
