@@ -80,10 +80,10 @@ public class BlogEndpoint {
 		return service.createBlog(blog);
 	}
 
-	@Path("/deleteBlog/{id}")
+	@Path("/deleteBlog/{id}/{account}")
 	@DELETE
 	@Produces({ "application/json" })
-	public String deleteBlog(@PathParam("id") int id, String account) {
+	public String deleteBlog(@PathParam("id") int id,@PathParam("account")  String account) {
 		return service.deleteBlog(id,account);
 	}
 	@Path("/editBlog/{id}")

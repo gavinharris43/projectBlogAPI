@@ -61,12 +61,11 @@ public class BlogDBRepository implements BlogRepository {
 	public String deleteBlog(int blogId, String username) {
 		Long blogID = (long) blogId;
 		Blog blogInDB = findBlog(blogID);
-		Account account = util.getObjectForJSON(username, Account.class);
-		if (blogInDB != null && account.getUsername().equals(blogInDB.getAuthor())) {
+		if (blogInDB != null & username.equals(blogInDB.getAuthor())) {
 			manager.remove(blogInDB);
 			return "{\"message\": \"blog sucessfully deleted\"}";
 		}
-		return "{\"message\": \"blog not sucessfully deleted\"}" +account.getUsername()+blogInDB.getAuthor();
+		return "{\"message\": \"blog not sucessfully deleted\"}";
 	}
 
 	private Blog findBlog(Long blogID) {
