@@ -5,7 +5,6 @@ public interface BlogService {
 	String getAllBlogs();
 	String createBlog(String blog);
 	String deleteBlog(int blogId, String username);
-	String editBlog(int blogId,String Blog);
 	String getTSBlogs();
 	String getGuitarBlogs();
 	String getAllAccounts();
@@ -13,5 +12,6 @@ public interface BlogService {
 	String updateAccount(Long accountID, String account);
 	String deleteAccount(Long accountID);
 	String login(String account);
+	String editBlog(int blogId, String Blog, String username);
 
 }

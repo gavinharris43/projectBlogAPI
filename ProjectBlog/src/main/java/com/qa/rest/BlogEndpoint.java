@@ -86,11 +86,11 @@ public class BlogEndpoint {
 	public String deleteBlog(@PathParam("id") int id,@PathParam("account")  String account) {
 		return service.deleteBlog(id,account);
 	}
-	@Path("/editBlog/{id}")
+	@Path("/editBlog/{id}/{account}")
 	@PUT
 	@Produces({ "application/json" })
-	public String editBlog(@PathParam("id") int id, String blog) {
-		return service.editBlog(id,blog);
+	public String editBlog(@PathParam("id") int id, String blog, @PathParam("account")  String account) {
+		return service.editBlog(id,blog,account);
 	}
 
 	public void setService(BlogService service) {

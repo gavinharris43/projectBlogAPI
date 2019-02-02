@@ -81,10 +81,10 @@ public class BlogDBRepository implements BlogRepository {
 	}
 	@Override
 	@Transactional(REQUIRED)
-	public String editBlog(int blogId, String blog) {
+	public String editBlog(int blogId, String blog, String username) {
 		Long blogID = (long) blogId;
 		Blog blogInDB = findBlog(blogID);
-		if (blogInDB != null && blogInDB.getId()==blogId) {
+		if (blogInDB != null & blogInDB.getId()==blogId & username.equals(blogInDB.getAuthor())) {
 			manager.remove(blogInDB);
 	Blog anBlog = util.getObjectForJSON(blog, Blog.class);
 	manager.persist(anBlog);
