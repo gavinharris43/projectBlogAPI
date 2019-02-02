@@ -23,6 +23,8 @@
               <type>pom</type>
               <scope>import</scope>
           </dependency>
+          <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+          
         </dependencies>
     </dependencyManagement>
 

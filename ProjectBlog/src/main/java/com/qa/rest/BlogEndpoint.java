@@ -14,9 +14,45 @@ import org.apache.log4j.Logger;
 import com.qa.business.service.BlogService;
 @Path("/blog")
 public class BlogEndpoint {
+	public BlogEndpoint(){}
 
 	@Inject
 	private BlogService service;
+	
+	@Path("/getAccounts")
+	@GET
+	@Produces({ "application/json" })
+	public String getAllAccounts() {
+		return service.getAllAccounts();
+	}
+
+	@Path("/addAccount")
+	@POST
+	@Produces({ "application/json" })
+	public String addAccount(String account) {
+		return service.addAccount(account);
+	}
+	
+	@Path("/login")
+	@POST
+	@Produces({ "application/json" })
+	public String login(String account) {
+		return service.login(account);
+	}
+
+	@Path("/updateAccount/{usernem}")
+	@PUT
+	@Produces({ "application/json" })
+	public String updateAccount(@PathParam("id") Long username, String account) {
+		return service.updateAccount(username, account);
+	}
+
+	@Path("/deleteAccount/{id}")
+	@DELETE
+	@Produces({ "application/json" })
+	public String deleteAccount(@PathParam("id") Long accountID) {
+		return service.deleteAccount(accountID);
+	}
 	
 	@Path("/getAllBlogs")
 	@GET
@@ -44,10 +80,10 @@ public class BlogEndpoint {
 		return service.createBlog(blog);
 	}
 
-	@Path("/deleteBlog/{id}")
+	@Path("/deleteBlog/{id}/{account}")
 	@DELETE
 	@Produces({ "application/json" })
-	public String deleteBlog(@PathParam("id") int id, String account) {
+	public String deleteBlog(@PathParam("id") int id,@PathParam("account")  String account) {
 		return service.deleteBlog(id,account);
 	}
 	@Path("/editBlog/{id}")

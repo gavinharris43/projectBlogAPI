@@ -4,15 +4,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity 
+@Table(name = "BLOG")
 public class Blog {
 	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	private Long id;
 	private String title;
-	private String author;
+	private String username;
 	private String content;
 	private String date;
 	private String category;
@@ -25,7 +27,7 @@ public class Blog {
 		this.id = id;
 		this.title = title;
 		this.content = content;
-		this.author = author;
+		this.username = author;
 	}
 	public Long getId() {
 		return id;
@@ -54,11 +56,11 @@ public class Blog {
 	}
 
 	public String getAuthor() {
-		return author;
+		return username;
 	}
 
 	public void setAuthor(String author) {
-		this.author = author;
+		this.username = author;
 	}
 
 	public String getDate() {

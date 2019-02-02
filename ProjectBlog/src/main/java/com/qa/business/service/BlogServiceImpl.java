@@ -12,31 +12,25 @@ public class BlogServiceImpl implements BlogService {
 
 	@Inject
 	private BlogRepository repo;
-
-//	public String getAllMovies() {
-//		return repo.getAllMovies();
-//	}
-
-////	@Override
-//	public String addMovie(String movie) {
-//		String movieName= new Gson().fromJson(movie, Blog.class).getName();
-//		String[] banned = {"titanic","greenland","motherfucher","Mortal Engines"};
-//		for (String i: banned) {
-//			if (movieName.equals(i)){
-//			return "{\"message\": \"We don't like "+movieName+", Movie Not Added.\"}";
-//		} 
-//		}
-//		
-//		return repo.createMovie(movie);
-//	}
-//
-////	@Override
-//	public String deleteMovie(Long id) {
-//		return repo.deleteMovie(id);
-//	}
 	
 	public void setRepo(BlogRepository repo) {
 		this.repo = repo;
+	}
+	@Override
+	public String getAllAccounts() {
+		return repo.getAllAccounts();
+	}
+	@Override
+	public String addAccount(String account) {
+			return repo.addAccount(account);
+	}
+	@Override
+	public String updateAccount(Long accountID, String account) {
+		return repo.updateAccount(accountID, account);
+	}
+	@Override
+	public String deleteAccount(Long accountID) {
+		return repo.deleteAccount(accountID);
 	}
 	@Override
 	public String getAllBlogs() {
@@ -44,29 +38,27 @@ public class BlogServiceImpl implements BlogService {
 	}
 	@Override
 	public String getTSBlogs() {
-		return repo.getTSBlogs();
-		
+		return repo.getTSBlogs();	
 	}
 	@Override
 	public String getGuitarBlogs() {
 		return repo.getGuitarBlogs();
 	}
-
-	
 	@Override
 	public String createBlog(String blog) {
 		return repo.createBlog(blog);
-		
 	}
 	@Override
 	public String deleteBlog(int blogId, String account) {
 		return repo.deleteBlog(blogId, account);
-	
 	}
 	@Override
 	public String editBlog(int blogId, String Blog) {
-		
 		return repo.editBlog(blogId,Blog);
+	}
+	@Override
+	public String login(String account) {
+		return repo.login(account);
 	}
 	
 
