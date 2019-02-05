@@ -25,8 +25,8 @@ public class BlogServiceImpl implements BlogService {
 			return repo.addAccount(account);
 	}
 	@Override
-	public String updateAccount(Long accountID, String account) {
-		return repo.updateAccount(accountID, account);
+	public String updateAccount(String username, String account) {
+		return repo.updateAccount(username, account);
 	}
 	@Override
 	public String deleteAccount(Long accountID) {

@@ -40,10 +40,10 @@ public class BlogEndpoint {
 		return service.login(account);
 	}
 
-	@Path("/updateAccount/{usernem}")
+	@Path("/updateAccount/{username}")
 	@PUT
 	@Produces({ "application/json" })
-	public String updateAccount(@PathParam("id") Long username, String account) {
+	public String updateAccount(@PathParam("id") String username, String account) {
 		return service.updateAccount(username, account);
 	}
 

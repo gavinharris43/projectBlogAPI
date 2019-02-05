@@ -118,8 +118,8 @@ public class BlogDBRepository implements BlogRepository {
 	}
 	
 	@Transactional(REQUIRED)
-	public String updateAccount(Long accountID, String account) {
-		Account theAccount = findAccount(accountID);
+	public String updateAccount(String username, String account) {
+		Account theAccount = findAccountByUsername(username);
 		manager.remove(theAccount);
 		Account anAccount = util.getObjectForJSON(account,  Account.class);
 		manager.persist(anAccount);
@@ -134,6 +134,11 @@ public class BlogDBRepository implements BlogRepository {
 			manager.remove(accountFromDB);
 		}
 		return "{\"message\": \"account has been successfully deleted\"}";
+	}
+	public Account findAccountByUsername(String username) {
+		Query query = manager.createQuery("Select id From Account a WHERE username="+username);
+		
+		return manager.find(Account.class, (long)query.getFirstResult());
 	}
 	public Account findAccount(Long id) {
 		return manager.find(Account.class, id);

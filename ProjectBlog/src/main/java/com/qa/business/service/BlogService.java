@@ -9,7 +9,7 @@ public interface BlogService {
 	String getGuitarBlogs();
 	String getAllAccounts();
 	String addAccount(String account);
-	String updateAccount(Long accountID, String account);
+	String updateAccount(String accountID, String account);
 	String deleteAccount(Long accountID);
 	String login(String account);
 	String editBlog(int blogId, String Blog, String username);
