@@ -43,15 +43,15 @@ public class BlogEndpoint {
 	@Path("/updateAccount/{username}")
 	@PUT
 	@Produces({ "application/json" })
-	public String updateAccount(@PathParam("id") String username, String account) {
+	public String updateAccount(@PathParam("username") String username, String account) {
 		return service.updateAccount(username, account);
 	}
 
-	@Path("/deleteAccount/{id}")
+	@Path("/deleteAccount/{username}")
 	@DELETE
 	@Produces({ "application/json" })
-	public String deleteAccount(@PathParam("id") Long accountID) {
-		return service.deleteAccount(accountID);
+	public String deleteAccount(@PathParam("username") String username) {
+		return service.deleteAccount(username);
 	}
 	
 	@Path("/getAllBlogs")

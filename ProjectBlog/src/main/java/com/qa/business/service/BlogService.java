@@ -10,7 +10,7 @@ public interface BlogService {
 	String getAllAccounts();
 	String addAccount(String account);
 	String updateAccount(String accountID, String account);
-	String deleteAccount(Long accountID);
+	String deleteAccount(String accountID);
 	String login(String account);
 	String editBlog(int blogId, String Blog, String username);
 

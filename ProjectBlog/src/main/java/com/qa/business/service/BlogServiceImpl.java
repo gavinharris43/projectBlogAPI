@@ -29,7 +29,7 @@ public class BlogServiceImpl implements BlogService {
 		return repo.updateAccount(username, account);
 	}
 	@Override
-	public String deleteAccount(Long accountID) {
+	public String deleteAccount(String accountID) {
 		return repo.deleteAccount(accountID);
 	}
 	@Override
