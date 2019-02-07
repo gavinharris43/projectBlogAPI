@@ -20,12 +20,13 @@ public class Account {
 	private String lastName;
 	private String password;
 	private String userLevel;
+	
 //	 @OneToMany(
 //	            cascade = CascadeType.ALL,
 //	            fetch = FetchType.EAGER
 //	    )
 //	    @JoinColumn(name="username")
-////	 , referencedColumnName="username"
+//	 , referencedColumnName="username"
 //	 private Collection<Blog> blog = new ArrayList<>();
 	 
 	 

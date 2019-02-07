@@ -20,8 +20,10 @@ import com.qa.util.JSONUtil;
 
 @Transactional(SUPPORTS)
 @Default
+
 public class BlogDBRepository implements BlogRepository {
 
+	@PersistenceContext(unitName="primary")
 	private EntityManager manager;
 
 	@Inject
