@@ -7,13 +7,10 @@ import java.util.Collection;
 
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
-import javax.json.Json;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
-
-import com.google.gson.JsonObject;
 import com.qa.persistence.domain.Account;
 import com.qa.persistence.domain.Blog;
 import com.qa.util.JSONUtil;

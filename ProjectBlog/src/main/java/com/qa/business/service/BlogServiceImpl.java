@@ -1,12 +1,8 @@
 package com.qa.business.service;
 
 import javax.inject.Inject;
-
-import org.apache.log4j.Logger;
-
 import com.google.gson.Gson;
 import com.qa.persistence.domain.Account;
-import com.qa.persistence.domain.Blog;
 import com.qa.persistence.repository.BlogRepository;
 
 public class BlogServiceImpl implements BlogService {
@@ -67,7 +63,7 @@ public class BlogServiceImpl implements BlogService {
 	@Override
 	public String login(String account) {
 		String accountName= new Gson().fromJson(account, Account.class).getUsername();
-		String[] banned = {"undefined"};
+		String[] banned = {"undefined",""};
 		for (String i: banned) {
 			if (accountName.contains(i)){
 			return "{\"message\": \"We don't allow "+accountName+" as a username, Account Not Found\"}";

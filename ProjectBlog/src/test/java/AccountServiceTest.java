@@ -1,21 +1,20 @@
 
-import static org.junit.Assert.*;
+//import static org.junit.Assert.*;
 
-import org.junit.Assert;
+//import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Test;
+//import org.junit.Test;
 
-import com.qa.persistence.domain.Account;
-import com.qa.persistence.domain.Blog;
+
 import com.qa.persistence.repository.BlogDBRepository;
-import com.qa.rest.BlogEndpoint;
-import com.qa.util.JSONUtil;
+
+//import com.qa.util.JSONUtil;
 
 public class AccountServiceTest {
 
-	private Blog service;
-	private JSONUtil util;
-	private BlogEndpoint endPoint;
+//	private Blog service;
+//	private JSONUtil util;
+//	private BlogEndpoint endPoint;
 	private BlogDBRepository blogDBRepo;
 
 	@Before
