@@ -23,11 +23,13 @@ public class Blog {
 	
 	}
 	
-	public Blog(Long id, String title, String content, String author) {
+	public Blog(Long id, String title, String content, String author,String date, String category) {
 		this.id = id;
 		this.title = title;
 		this.content = content;
 		this.username = author;
+		this.date= date;
+		this.category= category;
 	}
 	public Long getId() {
 		return id;
@@ -78,6 +80,7 @@ public class Blog {
 	public void setCategory(String category) {
 		this.category = category;
 	}
+	
 
 
 }
