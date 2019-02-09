@@ -21,25 +21,8 @@ public class Account {
 	private String password;
 	private String userLevel;
 	
-//	 @OneToMany(
-//	            cascade = CascadeType.ALL,
-//	            fetch = FetchType.EAGER
-//	    )
-//	    @JoinColumn(name="username")
-//	 , referencedColumnName="username"
-//	 private Collection<Blog> blog = new ArrayList<>();
-	 
-	 
-//	 @OneToMany(fetch=FetchType.EAGER)
-//		@JoinColumn(name="username")
-//		private Set<Blog> blogs;
-//		
-//		public Set<Blog> getBlogs() {
-//			return blogs;
-//		}
-	
 	public Account() {
-	
+	// Required
 	}
 	
 	public Account(Long id, String username, String firstName, String lastName, String password, String userLevel) {

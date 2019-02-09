@@ -57,8 +57,8 @@ public class BlogServiceImpl implements BlogService {
 		return repo.deleteBlog(blogId, account);
 	}
 	@Override
-	public String editBlog(int blogId, String Blog, String username) {
-		return repo.editBlog(blogId,Blog, username);
+	public String editBlog(int blogId, String blog, String username) {
+		return repo.editBlog(blogId,blog, username);
 	}
 	@Override
 	public String login(String account) {

@@ -132,7 +132,7 @@ public class BlogDBRepository implements BlogRepository {
 		String password = account2.getPassword();
 		String usrLvl = account2.getUserLevel();
 		Query query = manager.createQuery("UPDATE Account SET firstName='" + fName + "',  lastName='" + lName
-				+ "', password='" + password + "', userLevel='" + usrLvl + "' WHERE username='" + username + "'");
+				+ "', password=" + password + ", userLevel='" + usrLvl + "' WHERE username='" + username + "'");
 		query.executeUpdate();
 		return "{\"message\": \"account has been successfully updated\"}";
 

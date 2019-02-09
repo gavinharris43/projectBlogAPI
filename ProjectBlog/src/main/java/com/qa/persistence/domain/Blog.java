@@ -20,7 +20,7 @@ public class Blog {
 	private String category;
 	
 	public Blog() {
-	
+		// Required
 	}
 	
 	public Blog(Long id, String title, String content, String author,String date, String category) {
